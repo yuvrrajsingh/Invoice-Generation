@@ -1,0 +1,39 @@
+<template>
+    <lightning-card  title="Image Crop">
+    <template if:true={croppieLoaded}>
+        <template if:true={showImage}>
+            <div data-id="custom" class="imge-cropping"></div>
+        </template>
+        <template if:false={showImage}>
+            <div data-id="custom2" class="imge-cropping"></div>
+        </template>
+        
+        <div class="slds-form-element slds-m-vertical_large">
+            <div class="slds-form-element__control">
+                <div class="slds-file-selector slds-file-selector_files">
+                    <div class="slds-file-selector__dropzone" >
+                        <input type="file" class="slds-file-selector__input slds-assistive-text" accept="image/png, image/jpg, image/jpeg" id="img-crop-input" onchange={handleFileChange} >
+                        <label class="slds-file-selector__body" for="img-crop-input">
+                            <span class="slds-file-selector__button slds-button" >
+                                <lightning-icon icon-name="doctype:image" size="large" alternative-text="Upload Picture" class="slds-m-right_large"></lightning-icon>
+                                <div class="image-info">
+                                    <h3 class="slds-tile__title slds-truncate slds-m-bottom_none">{displayfileName}</h3>
+                                    <p>{fileSizeInMb} Mb</p>
+                                </div>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <div class="slds-grid slds-gutter slds-m-around_xx-small">
+        <div class="slds-col"><lightning-button  variant="brand" label="Rotate Right" title="titleName" onclick={handleRight}></lightning-button></div>
+        <div class="slds-col"><lightning-button  variant="brand" label="Rotate Left" title="titleName" onclick={handleLeft}></lightning-button></div>
+    </div>
+    <div class="slds-m-around_xx-small">
+        <lightning-button variant="brand" label="Remove Image" title="titleName" onclick={handleShowImage}></lightning-button>
+    </div>
+    </lightning-card>
+</template>
+<!--style="border: 5px solid green"-->
