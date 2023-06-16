@@ -1,0 +1,23 @@
+<template>
+    <!-- <h3><b>Optical Character Recognition</b></h3> -->
+
+    <!---SPINNER -->
+    <div if:true={isLoading}>
+        <lightning-spinner class="slds-spinner_brand" alternative-text="Loading" size="large" variant="base"></lightning-spinner>
+    </div>
+
+    <select id="langsel">
+        <option value='eng' selected> English </option>
+    </select>
+    <div id="log">
+        <span id="startPre">
+            <input name="files" type="file" class="" accept="image/png, image/jpg, image/jpeg" id="img-crop-input" onchange={handleChange} >
+            
+            <lightning-button variant="success" label="Recognize text" title="titleName" onclick={imageProcess}
+                ></lightning-button>
+        </span>
+    </div>
+    <div if:true={FinalText} class="my-div">
+        <p>{FinalText}</p>
+    </div>
+</template>
